@@ -26,7 +26,12 @@ function poolVersion () {
       client.end()
       return result
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+      console.log(err)
+      if (err && err.stack) {
+        console.log(err.stack)
+      }
+    })
     .finally(() => {
       console.log(`Total Time (Pool): ${Date.now() - time}ms`)
       pool.end()
