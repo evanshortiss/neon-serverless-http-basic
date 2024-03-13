@@ -16,7 +16,7 @@ function poolVersion () {
 
   neonConfig.webSocketConstructor = ws;
   
-  const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+  const pool = new Pool({ connectionString: process.env.DATABASE_URL, connectionTimeoutMillis: 30000 });
   const time = Date.now()
 
   pool.connect()
